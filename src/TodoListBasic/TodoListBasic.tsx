@@ -6,11 +6,12 @@ const TodoListBasic = () => {
     const [item, setItem ] = useState();
     const [state, setState ] = useState();
 
-    const [toDo, setToDo ] = useState();
-    const [inProgress, setInProgress ] = useState();
-    const [done, setDone ] = useState();
+    const [toDo, setToDo ] = useState(['a' , 'b']);
+    const [inProgress, setInProgress ] = useState(['c' , 'd']);
+    const [done, setDone ] = useState(['e' , 'f']);
 
     const handleAdd = () =>
+
     console.log(item , state);
 
     const handleChangeItem = (event:any) =>
@@ -47,9 +48,30 @@ const TodoListBasic = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>...</td>
-                        <td>...</td>
-                        <td>...</td>
+                        <td> 
+                            <ul>
+                            {toDo.map((item) => (
+                                <li>{item}</li>
+                            ))}
+                            </ul>
+                        </td>
+
+                        <td> 
+                            <ul>
+                            {inProgress.map((item) => (
+                                <li>{item}</li>
+                            ))}
+                            </ul>
+                        </td>
+
+                        <td> 
+                            <ul>
+                            {done.map((item) => (
+                                <li>{item}</li>
+                            ))}
+                            </ul>
+                        </td>
+
                     </tr>
                 </tbody>
             </table>
