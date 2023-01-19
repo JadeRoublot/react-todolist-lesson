@@ -1,18 +1,19 @@
 import Item from 'antd/es/list/Item';
+import { stringify } from 'querystring';
 import React, { useState } from 'react';
 
 const TodoListBasic = () => {
-
+   
     const [item, setItem ] = useState();
     const [state, setState ] = useState();
 
-    const [toDo, setToDo ] = useState(['a' , 'b']);
-    const [inProgress, setInProgress ] = useState(['c' , 'd']);
-    const [done, setDone ] = useState(['e' , 'f']);
+    const [toDo, setToDo ] = useState<string[]>(['a' , 'b']);
+    const [inProgress, setInProgress ] = useState<string[]>(['c' , 'd']);
+    const [done, setDone ] = useState<string[]>(['e' , 'f']);
 
     const handleAdd = () =>
-
-    console.log(item , state);
+    
+    console.log(item , state, typeof(item), typeof(state));
 
     const handleChangeItem = (event:any) =>
     setItem(event.target.value);
