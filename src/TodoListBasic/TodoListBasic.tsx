@@ -35,6 +35,24 @@ const TodoListBasic = () => {
             <button type="button" onClick={handleAdd}>
                 Add to list
             </button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th> To do </th>
+                        <th> In progress </th>
+                        <th> Done </th>
+                    </tr>
+                
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                </tbody>
+            </table>
         
         </div>
     
