@@ -5,22 +5,35 @@ import './TodoListBasicCss.css';
 
 const TodoListBasic = () => {
    
-    const [item, setItem ] = useState();
-    const [state, setState ] = useState();
+    const [item, setItem ] = useState('');
+    const [state, setState ] = useState('toDo');
 
     const [toDo, setToDo ] = useState<string[]>(['a' , 'b']);
     const [inProgress, setInProgress ] = useState<string[]>(['c' , 'd']);
     const [done, setDone ] = useState<string[]>(['e' , 'f']);
 
-    const handleAdd = () =>
+    const handleAdd = () => {
+        switch(state) {
+            case 'toDo' :
+                setToDo(toDo.concat(item)); break;
+            case 'inProgress' :
+                setInProgress(inProgress.concat(item)); break;
+            case 'done':
+                setDone(done.concat(item)); break;
+          }
+    }
     
-    console.log(item , state, typeof(item), typeof(state));
+    
 
-    const handleChangeItem = (event:any) =>
-    setItem(event.target.value);
+    const handleChangeItem = (event:any) => {
+        setItem(event.target.value);
+    }
+    
 
-    const handleChangeState = (event:any) =>
-    setState(event.target.value);
+    const handleChangeState = (event:any) => {
+        setState(event.target.value);
+    }
+    
 
 
     return (<div>
