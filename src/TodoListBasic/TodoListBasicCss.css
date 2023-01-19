@@ -2,3 +2,7 @@ input, label , button {
     margin: 10px;
 }
 
+#TodoListBasic {
+    margin: 10px;
+    padding: 10px;
+}

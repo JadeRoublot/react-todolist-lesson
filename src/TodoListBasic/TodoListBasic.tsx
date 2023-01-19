@@ -8,9 +8,9 @@ const TodoListBasic = () => {
     const [item, setItem ] = useState('');
     const [state, setState ] = useState('toDo');
 
-    const [toDo, setToDo ] = useState<string[]>(['a' , 'b']);
-    const [inProgress, setInProgress ] = useState<string[]>(['c' , 'd']);
-    const [done, setDone ] = useState<string[]>(['e' , 'f']);
+    const [toDo, setToDo ] = useState<string[]>(['Faire a manger' , 'Sortir le chien']);
+    const [inProgress, setInProgress ] = useState<string[]>(['Donner cours']);
+    const [done, setDone ] = useState<string[]>(['Dormir']);
 
     const handleAdd = () => {
         switch(state) {
@@ -52,18 +52,18 @@ const TodoListBasic = () => {
                 Add to list
             </button>
 
-            <table>
-                <thead>
-                    <tr>
+            <table id="TodoListBasic">
+                <thead  id="TodoListBasic">
+                    <tr  id="TodoListBasic">
                         <th> To do </th>
                         <th> In progress </th>
                         <th> Done </th>
                     </tr>
                 
                 </thead>
-                <tbody>
+                <tbody id="TodoListBasic">
                     <tr>
-                        <td> 
+                        <td id="TodoListBasic"> 
                             <ul>
                             {toDo.map((item) => (
                                 <li>{item}</li>
@@ -71,7 +71,7 @@ const TodoListBasic = () => {
                             </ul>
                         </td>
 
-                        <td> 
+                        <td  id="TodoListBasic"> 
                             <ul>
                             {inProgress.map((item) => (
                                 <li>{item}</li>
@@ -79,7 +79,7 @@ const TodoListBasic = () => {
                             </ul>
                         </td>
 
-                        <td> 
+                        <td  id="TodoListBasic"> 
                             <ul>
                             {done.map((item) => (
                                 <li>{item}</li>
