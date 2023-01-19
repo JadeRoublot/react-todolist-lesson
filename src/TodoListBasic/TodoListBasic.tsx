@@ -6,22 +6,29 @@ const TodoListBasic = () => {
     const [item, setItem ] = useState();
     const [state, setState ] = useState();
 
-    const handleAdd = () =>
-    console.log("hello");
+    const [toDo, setToDo ] = useState();
+    const [inProgress, setInProgress ] = useState();
+    const [done, setDone ] = useState();
 
-    const handleChange = (event:any) =>
+    const handleAdd = () =>
+    console.log(item , state);
+
+    const handleChangeItem = (event:any) =>
+    setItem(event.target.value);
+
+    const handleChangeState = (event:any) =>
     setState(event.target.value);
 
 
     return (<div>
         
-            <input type="text" name="item" />
+            <input type="text" name="item" value={item} onChange={handleChangeItem}/>
 
             <label>
-                <select value={state} onChange={handleChange}>
-                    <option value="To do">To do</option>
-                    <option value="In progress">In progress</option>
-                    <option value="Done">Done</option>
+                <select value={state} onChange={handleChangeState}>
+                    <option value="toDo">To do</option>
+                    <option value="inProgress">In progress</option>
+                    <option value="done">Done</option>
                 </select>
             </label>
 
