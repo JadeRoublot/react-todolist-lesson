@@ -1,6 +1,14 @@
 .column {
    margin: 5px;
-   width: 100%;
+   width: 950%;
+}
+
+.columnBtn {
+    margin: 10px;
+    position: absolute;
+    right: 10px;
+    top: 59px;
+    width: 9%;
 }
 
  

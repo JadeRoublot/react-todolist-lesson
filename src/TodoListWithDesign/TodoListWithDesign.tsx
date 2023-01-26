@@ -9,9 +9,9 @@ const TodoListWithDesign = () => {
     const [collum, setCollum ] = useState('');
     const [state, setState ] = useState('toDo');
 
-    const [toDo, setToDo ] = useState<string[]>(['Faire a manger' , 'Sortir le chien']);
-    const [inProgress, setInProgress ] = useState<string[]>(['Donner cours']);
-    const [done, setDone ] = useState<string[]>(['Dormir']);
+    const [toDo, setToDo ] = useState<string[]>(['Manger']);
+    const [inProgress, setInProgress ] = useState<string[]>(['Dormir', 'Faire du sport']);
+    const [done, setDone ] = useState<string[]>(['Sortir le chien']);
 
     const handleAdd = () => {
         switch(state) {
@@ -58,7 +58,7 @@ const TodoListWithDesign = () => {
             />
 
                 
-            <Button onClick={handleAddCollum} >Add column</Button>
+            <Button onClick={handleAddCollum} className='columnBtn' >Add column</Button>
         </Space>
 
         <br></br>
