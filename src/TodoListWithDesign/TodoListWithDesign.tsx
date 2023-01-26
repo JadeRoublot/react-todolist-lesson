@@ -4,6 +4,19 @@ import React, { useState } from 'react';
 import { List, Typography, Select, Space,  Mentions , Button } from 'antd';
 import './TodoListWithDesignCss.css';
 
+interface Item {
+    id: string;
+    label: string;
+}
+
+interface Column {
+    id: string;
+    label: string;
+    items: Item[];
+}
+
+const columns : Column[]= [{id:'1', label:'test', items: [{id:'1', label:'testItem'}]}]
+
 const TodoListWithDesign = () => {
     const [item, setItem ] = useState('');
     const [collum, setCollum ] = useState('');
@@ -13,18 +26,30 @@ const TodoListWithDesign = () => {
     const [toDo, setToDo ] = useState<string[]>(['Manger']);
     const [inProgress, setInProgress ] = useState<string[]>(['Dormir', 'Faire du sport']);
     const [done, setDone ] = useState<string[]>(['Sortir le chien']);
+    
+    const [select, setSelect] = useState( [{id: 1, label: 'To Do', content:toDo} , {id: 2, label: 'In Progress', content:inProgress} ,
+    {id: 3,  label: 'Done',  content:done}] );
+
     const [mainList, setMainList]= useState<string[][]>([toDo, inProgress, done]);
 
     const handleAdd = () => {
+        
+        
         switch(state) {
             case 'toDo' :
-                setToDo(toDo.concat(item)); break;
+                setToDo(toDo.concat(item));
+                handleChangeMain(toDo); break;
             case 'inProgress' :
                 setInProgress(inProgress.concat(item)); break;
             case 'done':
                 setDone(done.concat(item)); break;
           }
+          
     }
+    const handleChangeMain = (value: string[]) => {
+
+       // setMainList(value);
+      }
 
     const handleAddCollum = () => {
 
@@ -72,11 +97,7 @@ const TodoListWithDesign = () => {
                 defaultValue={state}
                 className='selectState'
                 onChange={handleChangeState}
-                options={[
-                    { value: 'toDo', label: 'To do' },
-                    { value: 'inProgress', label: 'In progress' },
-                    { value: 'done', label: 'Done' },
-                ]}
+                options={select}
             />
         
            
@@ -87,39 +108,18 @@ const TodoListWithDesign = () => {
 
             <Space align='start'>
 
-                    <List
-                        header={<div>To Do</div>}
-                        dataSource={toDo}
-                        renderItem={(item) => (
-                            <List.Item className="list">
-                            <Typography.Text mark></Typography.Text> 
-                            {item}
-                            <Button type="primary" danger className='danger'>X</Button> </List.Item> 
-                        )}
-                    />
-                    
-                    <List
-                        header={<div>In Progress</div>}
-                        dataSource={inProgress}
-                        renderItem={(item) => (
-                            <List.Item className="list">
-                            <Typography.Text mark></Typography.Text> 
-                            {item}
-                            <Button type="primary" danger className='danger'>X</Button> </List.Item> 
-                        )}
-                    />
-
-                    <List
-                         header={<div>Done</div>}
+                
+                <List
                         
-                        dataSource={done}
+                        dataSource={select}
                         renderItem={(item) => (
-                            <List.Item className="list">
-                                
-                            <Typography.Text mark ></Typography.Text> 
-                            
-                            {item}
-                            <Button type="primary" danger className='danger'>X</Button> </List.Item> 
+                            <Space align='start'>
+                        <List
+                            header={<div></div>}
+                          
+                        />
+
+                        </Space>
                         )}
                     />
                     </Space>   
