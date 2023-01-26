@@ -50,6 +50,8 @@ const TodoListWithDesign = () => {
             <Button onClick={handleAdd} >Add column</Button>
         </Space>
 
+        <br></br>
+
          <Space wrap>
             <Mentions
                 autoSize
@@ -73,6 +75,8 @@ const TodoListWithDesign = () => {
             <Button onClick={handleAdd} >Add to list</Button>
             </Space>
 
+            <br></br>
+            
             <Space wrap>
 
                     <List
