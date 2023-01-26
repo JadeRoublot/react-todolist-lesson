@@ -27,8 +27,11 @@ const TodoListWithDesign = () => {
     const [inProgress, setInProgress ] = useState<string[]>(['Dormir', 'Faire du sport']);
     const [done, setDone ] = useState<string[]>(['Sortir le chien']);
     
-    const [select, setSelect] = useState( [{id: 1, label: 'To Do', content:toDo} , {id: 2, label: 'In Progress', content:inProgress} ,
-    {id: 3,  label: 'Done',  content:done}] );
+    const [select, setSelect] = useState( [
+    {id:'1', label:'ToDo', items: [{id:'1', label:'Manger'}]}, 
+    {id:'2', label:'inProgress', item: [{id:'1', label:'Dormir'}, {id:'2', label:'Fair du sport'}]} ,
+    {id:'3', label:'done', item: [{id:'1', label:'Sortir le chien'}]}
+    ]);
 
     const [mainList, setMainList]= useState<string[][]>([toDo, inProgress, done]);
 
