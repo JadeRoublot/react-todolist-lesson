@@ -76,7 +76,7 @@ const TodoListWithDesign = () => {
             </Space>
 
             <br></br>
-            
+
             <Space wrap>
 
                     <List
@@ -84,8 +84,9 @@ const TodoListWithDesign = () => {
                         dataSource={toDo}
                         renderItem={(item) => (
                             <List.Item>
-                            <Typography.Text mark></Typography.Text> {item}
-                            </List.Item>
+                            <Typography.Text mark></Typography.Text> 
+                            {item}
+                            <Button type="primary" danger>X</Button> </List.Item> 
                         )}
                     />
                     
@@ -94,8 +95,9 @@ const TodoListWithDesign = () => {
                         dataSource={inProgress}
                         renderItem={(item) => (
                             <List.Item>
-                            <Typography.Text mark></Typography.Text> {item}
-                            </List.Item>
+                            <Typography.Text mark></Typography.Text> 
+                            {item}
+                            <Button type="primary" danger>X</Button> </List.Item> 
                         )}
                     />
 
@@ -104,8 +106,9 @@ const TodoListWithDesign = () => {
                         dataSource={done}
                         renderItem={(item) => (
                             <List.Item>
-                            <Typography.Text mark></Typography.Text> {item}
-                            </List.Item>
+                            <Typography.Text mark></Typography.Text> 
+                            {item}
+                            <Button type="primary" danger>X</Button> </List.Item> 
                         )}
                     />
                     </Space>   
