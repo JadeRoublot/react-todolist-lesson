@@ -1,7 +1,7 @@
 import Item from 'antd/es/list/Item';
 import { stringify } from 'querystring';
 import React, { useState } from 'react';
-import { Divider, List, Typography, Select, Space, SelectProps,  Mentions  } from 'antd';
+import { List, Typography, Select, Space,  Mentions  } from 'antd';
 
 const TodoListWithDesign = () => {
     const [item, setItem ] = useState('');
@@ -36,13 +36,14 @@ const TodoListWithDesign = () => {
 
 
     return (<div>
-        
+         <Space wrap>
             <Mentions
                 autoSize
                 style={{ width: '100%' }}
              
                 onChange={handleChangeItem}
             />
+
             <Select
                 defaultValue={state}
                 style={{ width: 120 }}
@@ -52,12 +53,15 @@ const TodoListWithDesign = () => {
                     { value: 'inProgress', label: 'In progress' },
                     { value: 'done', label: 'Done' },
                 ]}
-                />
-
+            />
+        </Space>
             <button type="button" onClick={handleAdd}>
                 Add to list
-            </button>  
-                
+            </button> 
+
+
+            <Space wrap>
+
                     <List
                         header={<div>To Do</div>}
                         dataSource={toDo}
@@ -87,7 +91,7 @@ const TodoListWithDesign = () => {
                             </List.Item>
                         )}
                     />
-                      
+                    </Space>   
         
         </div>
     
