@@ -1,10 +1,10 @@
 .column {
    margin: 5px;
    width: 100%;
-
 }
 
  
 .list{
     background-color: lightgray;
+    padding: -10px;
 }

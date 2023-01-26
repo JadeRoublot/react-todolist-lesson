@@ -22,8 +22,14 @@ const TodoListWithDesign = () => {
                 setDone(done.concat(item)); break;
           }
     }
+
+    const handleAddCollum = () => {
+        
+    }
     
-    
+    const handleChangeCollum = (value: string) => {
+        
+    }
 
     const handleChangeItem = (value: string) => {
         setItem(value);
@@ -38,16 +44,15 @@ const TodoListWithDesign = () => {
 
     return (<div>
 
-        <Space wrap>
+        <Space wrap className='try'>
             <Mentions
                 autoSize
                 className='column'
-                style={{ width: '100%' }}
-                onChange={handleChangeItem}
+                onChange={handleChangeCollum}
             />
 
                 
-            <Button onClick={handleAdd} >Add column</Button>
+            <Button onClick={handleAddCollum} >Add column</Button>
         </Space>
 
         <br></br>
