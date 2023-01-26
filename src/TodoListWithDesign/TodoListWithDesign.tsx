@@ -37,6 +37,19 @@ const TodoListWithDesign = () => {
 
 
     return (<div>
+
+        <Space wrap>
+            <Mentions
+                autoSize
+                className='column'
+                style={{ width: '100%' }}
+                onChange={handleChangeItem}
+            />
+
+                
+            <Button onClick={handleAdd} >Add column</Button>
+        </Space>
+
          <Space wrap>
             <Mentions
                 autoSize
