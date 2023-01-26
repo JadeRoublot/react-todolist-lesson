@@ -1,7 +1,7 @@
 import Item from 'antd/es/list/Item';
 import { stringify } from 'querystring';
 import React, { useState } from 'react';
-import { Divider, List, Typography, Select, Space } from 'antd';
+import { Divider, List, Typography, Select, Space, SelectProps,  Mentions  } from 'antd';
 
 const TodoListWithDesign = () => {
     const [item, setItem ] = useState('');
@@ -24,8 +24,8 @@ const TodoListWithDesign = () => {
     
     
 
-    const handleChangeItem = (event:any) => {
-        setItem(event.target.value);
+    const handleChangeItem = (value: string) => {
+        setItem(value);
     }
     
 
@@ -37,14 +37,16 @@ const TodoListWithDesign = () => {
 
     return (<div>
         
-            <input type="text" name="item" value={item} onChange={handleChangeItem}/>
-
-           
+            <Mentions
+                autoSize
+                style={{ width: '100%' }}
+             
+                onChange={handleChangeItem}
+            />
             <Select
                 defaultValue={state}
                 style={{ width: 120 }}
                 onChange={handleChangeState}
-                allowClear
                 options={[
                     { value: 'toDo', label: 'To do' },
                     { value: 'inProgress', label: 'In progress' },
@@ -55,8 +57,9 @@ const TodoListWithDesign = () => {
             <button type="button" onClick={handleAdd}>
                 Add to list
             </button>  
-                <h5>To Do</h5>
+                
                     <List
+                        header={<div>To Do</div>}
                         dataSource={toDo}
                         renderItem={(item) => (
                             <List.Item>
@@ -64,9 +67,9 @@ const TodoListWithDesign = () => {
                             </List.Item>
                         )}
                     />
-                    <h5>In Progress</h5>
+                    
                     <List
-                       
+                        header={<div>In Progress</div>}
                         dataSource={inProgress}
                         renderItem={(item) => (
                             <List.Item>
@@ -75,9 +78,8 @@ const TodoListWithDesign = () => {
                         )}
                     />
 
-                    <h5>Done</h5>
                     <List
-                        
+                         header={<div>Done</div>}
                         dataSource={done}
                         renderItem={(item) => (
                             <List.Item>
