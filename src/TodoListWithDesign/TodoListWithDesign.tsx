@@ -26,10 +26,11 @@ const TodoListWithDesign = () => {
 
     const handleAddCollum = () => {
         
-        return <List
+        return <div><List
             header={<div>{collum}</div>}
            
         />
+        </div>
     }
     
     const handleChangeCollum = (value: string) => {
@@ -87,7 +88,7 @@ const TodoListWithDesign = () => {
 
             <br></br>
 
-            <Space wrap>
+            <Space align='start'>
 
                     <List
                         header={<div>To Do</div>}
