@@ -1,6 +1,7 @@
 .column {
    margin: 5px;
    width: 950%;
+   
 }
 
 .columnBtn {
@@ -11,10 +12,33 @@
     width: 9%;
 }
 
+.listBtn{
+    margin: 10px;
+    position: absolute;
+    right: 10px;
+    top: 120px;
+    width: 8%;
+}
+
+.selectState {
+    margin: 10px;
+    position: absolute;
+    right: 180px;
+    top: 120px;
+    width: 8%;
+}
+
+.item {
+    position: flex;
+    margin: 15px;
+    width: 770%;
+    top: 8px;
+
+}
  
 .list{
     background-color: lightgray;
-    padding: -10px;
+    
 }
 
 .danger{

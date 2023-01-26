@@ -66,14 +66,13 @@ const TodoListWithDesign = () => {
          <Space wrap>
             <Mentions
                 autoSize
-                style={{ width: '100%' }}
-             
+                className='item'
                 onChange={handleChangeItem}
             />
 
             <Select
                 defaultValue={state}
-                style={{ width: 120 }}
+                className='selectState'
                 onChange={handleChangeState}
                 options={[
                     { value: 'toDo', label: 'To do' },
@@ -83,7 +82,7 @@ const TodoListWithDesign = () => {
             />
         
            
-            <Button onClick={handleAdd} >Add to list</Button>
+            <Button onClick={handleAdd} className='listBtn'>Add to list</Button>
             </Space>
 
             <br></br>
