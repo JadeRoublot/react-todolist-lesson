@@ -6,6 +6,7 @@ import './TodoListWithDesignCss.css';
 
 const TodoListWithDesign = () => {
     const [item, setItem ] = useState('');
+    const [collum, setCollum ] = useState('');
     const [state, setState ] = useState('toDo');
 
     const [toDo, setToDo ] = useState<string[]>(['Faire a manger' , 'Sortir le chien']);
@@ -25,10 +26,14 @@ const TodoListWithDesign = () => {
 
     const handleAddCollum = () => {
         
+        return <List
+            header={<div>{collum}</div>}
+           
+        />
     }
     
     const handleChangeCollum = (value: string) => {
-        
+        setCollum(value);
     }
 
     const handleChangeItem = (value: string) => {
