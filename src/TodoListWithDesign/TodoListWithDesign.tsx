@@ -97,7 +97,7 @@ const TodoListWithDesign = () => {
                             <List.Item className="list">
                             <Typography.Text mark></Typography.Text> 
                             {item}
-                            <Button type="primary" danger>X</Button> </List.Item> 
+                            <Button type="primary" danger className='danger'>X</Button> </List.Item> 
                         )}
                     />
                     
@@ -108,7 +108,7 @@ const TodoListWithDesign = () => {
                             <List.Item className="list">
                             <Typography.Text mark></Typography.Text> 
                             {item}
-                            <Button type="primary" danger>X</Button> </List.Item> 
+                            <Button type="primary" danger className='danger'>X</Button> </List.Item> 
                         )}
                     />
 
@@ -122,7 +122,7 @@ const TodoListWithDesign = () => {
                             <Typography.Text mark ></Typography.Text> 
                             
                             {item}
-                            <Button type="primary" danger>X</Button> </List.Item> 
+                            <Button type="primary" danger className='danger'>X</Button> </List.Item> 
                         )}
                     />
                     </Space>   
