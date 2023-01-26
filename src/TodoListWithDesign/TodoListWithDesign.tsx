@@ -39,11 +39,11 @@ const TodoListWithDesign = () => {
         
         
         switch(state) {
-            case 'toDo' :
+            case '1' :
                 setToDo(toDo.concat(item)); break;
-            case 'inProgress' :
+            case '2' :
                 setInProgress(inProgress.concat(item)); break;
-            case 'done':
+            case '3':
                 setDone(done.concat(item)); break;
           }
           
