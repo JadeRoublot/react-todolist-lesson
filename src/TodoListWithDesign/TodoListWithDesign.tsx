@@ -40,8 +40,7 @@ const TodoListWithDesign = () => {
         
         switch(state) {
             case 'toDo' :
-                setToDo(toDo.concat(item));
-                handleChangeMain(toDo); break;
+                setToDo(toDo.concat(item)); break;
             case 'inProgress' :
                 setInProgress(inProgress.concat(item)); break;
             case 'done':
@@ -49,14 +48,10 @@ const TodoListWithDesign = () => {
           }
           
     }
-    const handleChangeMain = (value: string[]) => {
-
-       // setMainList(value);
-      }
+   
 
     const handleAddCollum = () => {
-
-      setMainList(mainList.concat([collum]));
+        
     }
     
     const handleChangeCollum = (value: string) => {
