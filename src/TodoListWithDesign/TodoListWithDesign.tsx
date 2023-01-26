@@ -9,9 +9,11 @@ const TodoListWithDesign = () => {
     const [collum, setCollum ] = useState('');
     const [state, setState ] = useState('toDo');
 
+    
     const [toDo, setToDo ] = useState<string[]>(['Manger']);
     const [inProgress, setInProgress ] = useState<string[]>(['Dormir', 'Faire du sport']);
     const [done, setDone ] = useState<string[]>(['Sortir le chien']);
+    const [mainList, setMainList]= useState<string[][]>([toDo, inProgress, done]);
 
     const handleAdd = () => {
         switch(state) {
