@@ -27,12 +27,8 @@ const TodoListWithDesign = () => {
     }
 
     const handleAddCollum = () => {
-        
-        return <div><List
-            header={<div>{collum}</div>}
-           
-        />
-        </div>
+
+      setMainList(mainList.concat([collum]));
     }
     
     const handleChangeCollum = (value: string) => {
