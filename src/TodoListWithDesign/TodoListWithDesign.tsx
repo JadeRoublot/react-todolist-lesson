@@ -83,7 +83,7 @@ const TodoListWithDesign = () => {
                         header={<div>To Do</div>}
                         dataSource={toDo}
                         renderItem={(item) => (
-                            <List.Item>
+                            <List.Item className="list">
                             <Typography.Text mark></Typography.Text> 
                             {item}
                             <Button type="primary" danger>X</Button> </List.Item> 
@@ -94,7 +94,7 @@ const TodoListWithDesign = () => {
                         header={<div>In Progress</div>}
                         dataSource={inProgress}
                         renderItem={(item) => (
-                            <List.Item>
+                            <List.Item className="list">
                             <Typography.Text mark></Typography.Text> 
                             {item}
                             <Button type="primary" danger>X</Button> </List.Item> 
@@ -103,10 +103,13 @@ const TodoListWithDesign = () => {
 
                     <List
                          header={<div>Done</div>}
+                        
                         dataSource={done}
                         renderItem={(item) => (
-                            <List.Item>
-                            <Typography.Text mark></Typography.Text> 
+                            <List.Item className="list">
+                                
+                            <Typography.Text mark ></Typography.Text> 
+                            
                             {item}
                             <Button type="primary" danger>X</Button> </List.Item> 
                         )}
