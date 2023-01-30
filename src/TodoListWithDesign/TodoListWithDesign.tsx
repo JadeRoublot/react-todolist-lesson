@@ -22,7 +22,7 @@ const columns : Column[]= [{id:'1', label:'test', items: [{id:'1', label:'testIt
 const TodoListWithDesign = () => {
     const [item, setItem ] = useState('');
     const [collum, setCollum ] = useState('');
-    const [state, setState ] = useState('toDo');
+    const [state, setState ] = useState('. . .');
 
     
     const [toDo, setToDo ] = useState<string[]>(['Manger']);
@@ -38,15 +38,18 @@ const TodoListWithDesign = () => {
     const [mainList, setMainList]= useState<string[][]>([toDo, inProgress, done]);
 
     const handleAdd = () => {
-        
+        console.log (item);
+        console.log (state);
         
         switch(state) {
             case '1' :
-                setToDo(toDo.concat(item)); break;
+                console.log('case 1'); break;
             case '2' :
-                setInProgress(inProgress.concat(item)); break;
+                console.log('case 2'); break;
             case '3':
-                setDone(done.concat(item)); break;
+                console.log('case 3'); break;
+            case '. . .':
+                console.log('case 4'); break;
           }
           
     }
@@ -94,6 +97,7 @@ const TodoListWithDesign = () => {
             />
 
             <Select
+                defaultValue={state}
                 className='selectState'
                 onChange={handleChangeState}
                 options={select.map((select) => ({ label: select.label, value: select.id }))}
@@ -114,6 +118,7 @@ const TodoListWithDesign = () => {
                     <List
                         header={select.label}
                         dataSource={select.items}
+                        
                         renderItem={(items) => ( select.items?.map((item) => (
                             
                             <List.Item>
