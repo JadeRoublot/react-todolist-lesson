@@ -3,6 +3,8 @@ import { stringify } from 'querystring';
 import React, { useState } from 'react';
 import { List, Typography, Select, Space,  Mentions , Button } from 'antd';
 import './TodoListWithDesignCss.css';
+import { isTemplateSpan } from 'typescript';
+import { iteratorSymbol } from 'immer/dist/internal';
 
 interface Item {
     id: string;
@@ -27,7 +29,7 @@ const TodoListWithDesign = () => {
     const [inProgress, setInProgress ] = useState<string[]>(['Dormir', 'Faire du sport']);
     const [done, setDone ] = useState<string[]>(['Sortir le chien']);
     
-    const [select, setSelect] =  [
+    const select =  [
     {id:'1', label:'ToDo', items: [{id:'1', label:'Manger'}]}, 
     {id:'2', label:'inProgress', item: [{id:'1', label:'Dormir'}, {id:'2', label:'Fair du sport'}]} ,
     {id:'3', label:'done', item: [{id:'1', label:'Sortir le chien'}]}
@@ -92,13 +94,11 @@ const TodoListWithDesign = () => {
             />
 
             <Select
-                defaultValue={state}
                 className='selectState'
                 onChange={handleChangeState}
-                key = {select.id}
-                options={[
-                    { value: select.id, label: select.label }
-                ]}
+                options={select.map((select) => ({ label: select.label, value: select.id }))}
+                   
+                
             />
         
            
@@ -108,7 +108,23 @@ const TodoListWithDesign = () => {
             <br></br>
 
             <Space align='start'>
-
+            <List
+                dataSource={select}
+                renderItem={(select) => (
+                    <List
+                        header={select.label}
+                        dataSource={select.items}
+                        renderItem={(items) => ( select.items?.map((item) => (
+                            
+                            <List.Item>
+                            <Typography.Text mark></Typography.Text> { item.label}
+                            </List.Item>
+                            ))
+                            
+                        )}
+                    />
+                )}
+                 />
              
             </Space>   
         
