@@ -27,11 +27,11 @@ const TodoListWithDesign = () => {
     const [inProgress, setInProgress ] = useState<string[]>(['Dormir', 'Faire du sport']);
     const [done, setDone ] = useState<string[]>(['Sortir le chien']);
     
-    const [select, setSelect] = useState( [
+    const [select, setSelect] =  [
     {id:'1', label:'ToDo', items: [{id:'1', label:'Manger'}]}, 
     {id:'2', label:'inProgress', item: [{id:'1', label:'Dormir'}, {id:'2', label:'Fair du sport'}]} ,
     {id:'3', label:'done', item: [{id:'1', label:'Sortir le chien'}]}
-    ]);
+    ];
 
     const [mainList, setMainList]= useState<string[][]>([toDo, inProgress, done]);
 
@@ -95,7 +95,10 @@ const TodoListWithDesign = () => {
                 defaultValue={state}
                 className='selectState'
                 onChange={handleChangeState}
-                options={select}
+                key = {select.id}
+                options={[
+                    { value: select.id, label: select.label }
+                ]}
             />
         
            
@@ -106,21 +109,8 @@ const TodoListWithDesign = () => {
 
             <Space align='start'>
 
-                
-                <List
-                        
-                        dataSource={select}
-                        renderItem={(item) => (
-                            <Space align='start'>
-                        <List
-                            header={<div></div>}
-                          
-                        />
-
-                        </Space>
-                        )}
-                    />
-                    </Space>   
+             
+            </Space>   
         
         </div>
     
