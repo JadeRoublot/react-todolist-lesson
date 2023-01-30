@@ -23,33 +23,36 @@ const TodoListWithDesign = () => {
     const [item, setItem ] = useState('');
     const [collum, setCollum ] = useState('');
     const [state, setState ] = useState('. . .');
-
     
-    const [toDo, setToDo ] = useState<string[]>(['Manger']);
-    const [inProgress, setInProgress ] = useState<string[]>(['Dormir', 'Faire du sport']);
-    const [done, setDone ] = useState<string[]>(['Sortir le chien']);
-    
-    const select =  [
+    var select =  [
     {id:'1', label:'ToDo', items: [{id:'1', label:'Manger'}]}, 
-    {id:'2', label:'inProgress', item: [{id:'1', label:'Dormir'}, {id:'2', label:'Fair du sport'}]} ,
-    {id:'3', label:'done', item: [{id:'1', label:'Sortir le chien'}]}
+    {id:'2', label:'inProgress', items: [{id:'1', label:'Dormir'}, {id:'2', label:'Fair du sport'}]} ,
+    {id:'3', label:'done', items: [{id:'1', label:'Sortir le chien'}]}
     ];
 
-    const [mainList, setMainList]= useState<string[][]>([toDo, inProgress, done]);
+  
+    
 
     const handleAdd = () => {
         console.log (item);
-        console.log (state);
+        console.log(select[2]);
+        var idNew = '';
         
         switch(state) {
             case '1' :
-                console.log('case 1'); break;
+                 idNew = (select[0].items!.length+1)?.toString();
+                 select[0].items?.concat({ id: idNew, label: item }); break;
+
             case '2' :
-                console.log('case 2'); break;
+                idNew = (select[1].items!.length+1)?.toString();
+                select[1].items?.concat({ id: idNew, label: item }); break;
+
             case '3':
-                console.log('case 3'); break;
+                idNew = (select[2].items!.length+1)?.toString();
+                select[2].items?.concat({ id: idNew, label: item }); break;
+                
             case '. . .':
-                console.log('case 4'); break;
+                 break;
           }
           
     }
