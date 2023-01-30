@@ -34,26 +34,24 @@ const TodoListWithDesign = () => {
     
 
     const handleAdd = () => {
-        console.log (item);
-        console.log(select[2]);
+        //console.log (item);
+        //console.log(select[2]);
         var idNew = '';
         
-        switch(state) {
-            case '1' :
-                 idNew = (select[0].items!.length+1)?.toString();
-                 select[0].items?.concat({ id: idNew, label: item }); break;
+        if (state == '. . .') {
+            console.log('');
+        } else {
 
-            case '2' :
-                idNew = (select[1].items!.length+1)?.toString();
-                select[1].items?.concat({ id: idNew, label: item }); break;
+            for(let i = 0; i < select.length+1; i++){
 
-            case '3':
-                idNew = (select[2].items!.length+1)?.toString();
-                select[2].items?.concat({ id: idNew, label: item }); break;
-                
-            case '. . .':
-                 break;
-          }
+                if(state == (i).toString()) {
+                    idNew = (select[i-1].items!.length+1)?.toString();
+                    select[i-1].items?.concat({ id: idNew, label: item });
+                    console.log(select[i-1].items?.concat({ id: idNew, label: item }));
+                }
+
+            }
+        }
           
     }
    
