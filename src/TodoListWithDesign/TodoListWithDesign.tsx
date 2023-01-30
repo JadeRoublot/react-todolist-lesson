@@ -57,7 +57,9 @@ const TodoListWithDesign = () => {
    
 
     const handleAddCollum = () => {
-        
+        var idNewCollum =(select.length+1).toString();
+        select.concat({id:idNewCollum, label:collum, items:[]});
+        console.log(select.concat({id:idNewCollum, label:collum, items:[]}));
     }
     
     const handleChangeCollum = (value: string) => {
