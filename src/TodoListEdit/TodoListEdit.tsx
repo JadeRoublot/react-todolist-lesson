@@ -33,6 +33,8 @@ const TodoListEdit = () => {
     const [isModalItemOpen, setIsModalItemOpen] = useState(false);
     const [isModalColumnOpen, setIsModalColumnOpen] = useState(false);
     const [modalText, setModalText] = useState('Content of the modal');
+    const [modalSelect, setModalSelect] = useState('Content of the modal');
+
 
     const randomId = () => (Math.random() + 1).toString(36).substring(7);
 
@@ -88,15 +90,17 @@ const TodoListEdit = () => {
     const handleOnDeleteColumn = (LabelToRemove: string) => {
 
         const valueId = columns.filter(({label}) => LabelToRemove)[0].value;
-        
+
         setItems(items.filter(({ columnId }) => columnId !== valueId));
         setColumns(columns.filter(({label}) => label !== LabelToRemove));
        
     };
 
 
-    const handleModalItem = (idToChange: string , LabelToChange: string) => {
+    const handleModalItem = (idToChange: string , LabelToChange: string, columnIdSelected: string) => {
        setModalText(LabelToChange);
+       const columnItems = columns.filter(({label}) => label !== columnIdSelected)[0].label;
+       setModalSelect(columnItems);
        setIsModalItemOpen(true);
     };
 
@@ -185,7 +189,7 @@ const TodoListEdit = () => {
 
                                 </div>}
                             dataSource={columnItems}
-                            renderItem={({ label, id }) => (
+                            renderItem={({ columnId, label, id }) => (
                                 <List.Item className="todo-list-with-design-item">
                                     {label}
 
@@ -195,7 +199,7 @@ const TodoListEdit = () => {
                                             
                                             size="small"
                                             icon={<EditOutlined />}
-                                            onClick={() => handleModalItem(id, label)}
+                                            onClick={() => handleModalItem(id, label, columnId)}
                                         />
 
                                         <Button
@@ -232,7 +236,7 @@ const TodoListEdit = () => {
                 <Select
                     placeholder="Select column"
                     onChange={handleOnCategoryChange}
-                    value={newItemColumn}
+                    value={modalSelect}
                     options={columns}
                 />
 
