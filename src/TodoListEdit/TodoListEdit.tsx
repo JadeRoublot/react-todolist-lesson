@@ -99,7 +99,8 @@ const TodoListEdit = () => {
 
     const handleModalItem = (idToChange: string , LabelToChange: string, columnIdSelected: string) => {
        setModalText(LabelToChange);
-       const columnItems = columns.filter(({label}) => label !== columnIdSelected)[0].label;
+       const columnItems = columns.filter(({ value}) =>  value === columnIdSelected)[0].label;
+
        setModalSelect(columnItems);
        setIsModalItemOpen(true);
     };
@@ -108,6 +109,16 @@ const TodoListEdit = () => {
         setModalText(LabelToChange);
         setIsModalColumnOpen(true);
     };
+
+
+    const  handleChangModalColumn = () => {
+       // return items.filter(({ columnId }) => columnId === columnIdSelected);
+    };
+
+    const handleChangModalItem = () => {
+        //return items.filter(({ columnId }) => columnId === columnIdSelected);
+    };
+
 
      const handleOk = () => {
         setIsModalItemOpen(false);
@@ -221,7 +232,7 @@ const TodoListEdit = () => {
             <Modal title="Column edition" open={isModalColumnOpen} onOk={handleOk} onCancel={handleCancel}>
                 <Input
                         placeholder= {modalText}
-                        onChange={handleOnColumnNameChange}
+                        onChange={handleChangModalColumn}
                         value={modalText}
                     />
             </Modal>
@@ -229,13 +240,13 @@ const TodoListEdit = () => {
             <Modal title="Item edition" open={isModalItemOpen} onOk={handleOk} onCancel={handleCancel}>
                 <Input
                         placeholder={modalText}
-                        onChange={handleOnItemNameChange}
+                        onChange={handleChangModalItem}
                         value={modalText}
                     />
 
                 <Select
                     placeholder="Select column"
-                    onChange={handleOnCategoryChange}
+                    onChange={handleChangModalItem}
                     value={modalSelect}
                     options={columns}
                 />
