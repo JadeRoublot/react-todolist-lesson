@@ -30,6 +30,9 @@ const TodoListEdit = () => {
     const [newColumnName, setColumnName] = useState<string>();
     const [newItemColumn, setNewItemColumn] = useState<string>();
 
+    const [isModalItemOpen, setIsModalItemOpen] = useState(false);
+    const [isModalColumnOpen, setIsModalColumnOpen] = useState(false);
+
     const randomId = () => (Math.random() + 1).toString(36).substring(7);
 
     const handleOnItemNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
