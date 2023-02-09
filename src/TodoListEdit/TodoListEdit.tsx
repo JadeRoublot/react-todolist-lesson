@@ -32,6 +32,7 @@ const TodoListEdit = () => {
 
     const [isModalItemOpen, setIsModalItemOpen] = useState(false);
     const [isModalColumnOpen, setIsModalColumnOpen] = useState(false);
+    const [modalText, setModalText] = useState('Content of the modal');
 
     const randomId = () => (Math.random() + 1).toString(36).substring(7);
 
@@ -95,13 +96,14 @@ const TodoListEdit = () => {
     };
 
 
-    const handleOnModifItem = (idToChange: string) => {
+    const handleOnModifItem = (idToChange: string , LabelToChange: string) => {
        // setItems(items.filter(({ id }) => id !== idToRemove));
+       setModalText(LabelToChange);
        setIsModalItemOpen(true);
     };
 
     const handleOnModifColumn = (LabelToChange: string) => {
-        //setItems(items.filter(({ id }) => id !== idToRemove));
+        setModalText(LabelToChange);
         setIsModalColumnOpen(true);
     };
 
@@ -195,7 +197,7 @@ const TodoListEdit = () => {
                                             
                                             size="small"
                                             icon={<EditOutlined />}
-                                            onClick={() => handleOnModifItem(id)}
+                                            onClick={() => handleOnModifItem(id, label)}
                                         />
 
                                         <Button
@@ -216,17 +218,17 @@ const TodoListEdit = () => {
 
             <Modal title="Column edition" open={isModalColumnOpen} onOk={handleOk} onCancel={handleCancel}>
                 <Input
-                        placeholder="Column name"
+                        placeholder= {modalText}
                         onChange={handleOnColumnNameChange}
-                        value={newColumnName}
+                        value={modalText}
                     />
             </Modal>
 
             <Modal title="Item edition" open={isModalItemOpen} onOk={handleOk} onCancel={handleCancel}>
                 <Input
-                        placeholder="Item name"
+                        placeholder={modalText}
                         onChange={handleOnItemNameChange}
-                        value={newItemName}
+                        value={modalText}
                     />
 
                 <Select
@@ -235,7 +237,7 @@ const TodoListEdit = () => {
                     value={newItemColumn}
                     options={columns}
                 />
-                
+
             </Modal>
             
         </div>
