@@ -215,15 +215,27 @@ const TodoListEdit = () => {
             </div>
 
             <Modal title="Column edition" open={isModalColumnOpen} onOk={handleOk} onCancel={handleCancel}>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <Input
+                        placeholder="Column name"
+                        onChange={handleOnColumnNameChange}
+                        value={newColumnName}
+                    />
             </Modal>
 
             <Modal title="Item edition" open={isModalItemOpen} onOk={handleOk} onCancel={handleCancel}>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <Input
+                        placeholder="Item name"
+                        onChange={handleOnItemNameChange}
+                        value={newItemName}
+                    />
+
+                <Select
+                    placeholder="Select column"
+                    onChange={handleOnCategoryChange}
+                    value={newItemColumn}
+                    options={columns}
+                />
+                
             </Modal>
             
         </div>
