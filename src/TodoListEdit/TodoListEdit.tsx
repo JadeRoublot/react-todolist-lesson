@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Input, List, Select } from 'antd';
 import './TodoListEdit.css';
-import { CloseOutlined } from '@ant-design/icons';
+import { CloseOutlined , EditOutlined} from '@ant-design/icons';
 
 import  AddColumn from './AddColumn';
 import  AddItem from './AddItem';
@@ -81,6 +81,10 @@ const TodoListEdit = () => {
         setItems(items.filter(({ id }) => id !== idToRemove));
     };
 
+    const handleOnModifItem = (idToRemove: string) => {
+       // setItems(items.filter(({ id }) => id !== idToRemove));
+    };
+
     return (
         <div className="todo-list-with-design">
             <div className="todo-list-with-design-add-column">
@@ -133,6 +137,15 @@ const TodoListEdit = () => {
                             renderItem={({ label, id }) => (
                                 <List.Item className="todo-list-with-design-item">
                                     {label}
+
+                                    <Button
+                                        type="primary"
+                                        
+                                        size="small"
+                                        icon={<EditOutlined />}
+                                        onClick={() => handleOnModifItem(id)}
+                                    />
+
                                     <Button
                                         type="primary"
                                         danger
