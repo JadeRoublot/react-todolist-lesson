@@ -3,6 +3,12 @@ import { Button, Input, List, Select } from 'antd';
 import './TodoListEdit.css';
 import { CloseOutlined } from '@ant-design/icons';
 
+import  AddColumn from './AddColumn';
+import  AddItem from './AddItem';
+import  ColumnTsx from './Column';
+import  ColumnModal from './ColumnModal';
+import  ItemModal from './ItemModal';
+
 interface Column {
     value: string;
     label: string;
