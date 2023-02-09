@@ -97,6 +97,7 @@ const TodoListEdit = () => {
 
     const handleOnModifItem = (idToChange: string) => {
        // setItems(items.filter(({ id }) => id !== idToRemove));
+       setIsModalItemOpen(true);
     };
 
     const handleOnModifColumn = (LabelToChange: string) => {
@@ -212,11 +213,19 @@ const TodoListEdit = () => {
                     );
                 })}
             </div>
-            <Modal title="Basic Modal" open={isModalColumnOpen} onOk={handleOk} onCancel={handleCancel}>
+
+            <Modal title="Column edition" open={isModalColumnOpen} onOk={handleOk} onCancel={handleCancel}>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
             </Modal>
+
+            <Modal title="Item edition" open={isModalItemOpen} onOk={handleOk} onCancel={handleCancel}>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+            </Modal>
+            
         </div>
     );
 };
