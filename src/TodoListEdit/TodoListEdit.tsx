@@ -85,6 +85,14 @@ const TodoListEdit = () => {
        // setItems(items.filter(({ id }) => id !== idToRemove));
     };
 
+    const handleOnModifColumn = (LabelToRemove: string) => {
+        //setItems(items.filter(({ id }) => id !== idToRemove));
+    };
+
+    const handleOnDeleteColumn = (LabelToRemove: string) => {
+       // setItems(items.filter(({ id }) => id !== idToRemove));
+    };
+
     return (
         <div className="todo-list-with-design">
             <div className="todo-list-with-design-add-column">
@@ -140,7 +148,7 @@ const TodoListEdit = () => {
                                         
                                         size="small"
                                         icon={<EditOutlined />}
-                                        //onClick={() => handleOnModifItem(id)}
+                                        onClick={() => handleOnModifColumn(label)}
                                     />
 
                                 <Button
@@ -148,9 +156,9 @@ const TodoListEdit = () => {
                                     danger
                                     size="small"
                                     icon={<CloseOutlined />}
-                                    //  onClick={() => handleOnDeleteItem(id)}
+                                    onClick={() => handleOnDeleteColumn(label)}
                                 />
-                                
+
                                 </div>}
                             dataSource={columnItems}
                             renderItem={({ label, id }) => (
