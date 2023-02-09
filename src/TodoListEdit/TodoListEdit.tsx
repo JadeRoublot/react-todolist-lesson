@@ -132,27 +132,49 @@ const TodoListEdit = () => {
                         <List
                             className="todo-list-with-design-column"
                             key={value}
-                            header={<div>{label}</div>}
+                            header={<div>
+                                {label}
+
+                                <Button
+                                        type="primary"
+                                        
+                                        size="small"
+                                        icon={<EditOutlined />}
+                                        //onClick={() => handleOnModifItem(id)}
+                                    />
+
+                                <Button
+                                    type="primary"
+                                    danger
+                                    size="small"
+                                    icon={<CloseOutlined />}
+                                    //  onClick={() => handleOnDeleteItem(id)}
+                                />
+                                
+                                </div>}
                             dataSource={columnItems}
                             renderItem={({ label, id }) => (
                                 <List.Item className="todo-list-with-design-item">
                                     {label}
 
-                                    <Button
-                                        type="primary"
-                                        
-                                        size="small"
-                                        icon={<EditOutlined />}
-                                        onClick={() => handleOnModifItem(id)}
-                                    />
+                                    <div>
+                                        <Button
+                                            type="primary"
+                                            
+                                            size="small"
+                                            icon={<EditOutlined />}
+                                            onClick={() => handleOnModifItem(id)}
+                                        />
 
-                                    <Button
-                                        type="primary"
-                                        danger
-                                        size="small"
-                                        icon={<CloseOutlined />}
-                                        onClick={() => handleOnDeleteItem(id)}
-                                    />
+                                        <Button
+                                            type="primary"
+                                            danger
+                                            size="small"
+                                            icon={<CloseOutlined />}
+                                            onClick={() => handleOnDeleteItem(id)}
+                                        />
+                                    </div>
+
                                 </List.Item>
                             )}
                         />
