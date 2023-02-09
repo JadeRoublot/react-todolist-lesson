@@ -84,14 +84,6 @@ const TodoListEdit = () => {
         setItems(items.filter(({ id }) => id !== idToRemove));
     };
 
-    const handleOnModifItem = (idToChange: string) => {
-       // setItems(items.filter(({ id }) => id !== idToRemove));
-    };
-
-    const handleOnModifColumn = (LabelToChange: string) => {
-        //setItems(items.filter(({ id }) => id !== idToRemove));
-    };
-
     const handleOnDeleteColumn = (LabelToRemove: string) => {
 
         const valueId = columns.filter(({label}) => LabelToRemove)[0].value;
@@ -101,6 +93,27 @@ const TodoListEdit = () => {
         setColumns(columns.filter(({label}) => label !== LabelToRemove));
        
     };
+    
+
+    const handleOnModifItem = (idToChange: string) => {
+       // setItems(items.filter(({ id }) => id !== idToRemove));
+    };
+
+    const handleOnModifColumn = (LabelToChange: string) => {
+        //setItems(items.filter(({ id }) => id !== idToRemove));
+    };
+
+     const handleOk = () => {
+        setIsModalItemOpen(false);
+        setIsModalColumnOpen(false);
+      };
+    
+      const handleCancel = () => {
+        setIsModalItemOpen(false);
+        setIsModalColumnOpen(false);
+      };
+
+   
 
     return (
         <div className="todo-list-with-design">
@@ -198,6 +211,7 @@ const TodoListEdit = () => {
                     );
                 })}
             </div>
+          
         </div>
     );
 };
