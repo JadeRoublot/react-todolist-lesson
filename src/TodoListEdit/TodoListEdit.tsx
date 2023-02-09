@@ -97,16 +97,17 @@ const TodoListEdit = () => {
     };
 
 
-    const handleModalItem = (idToChange: string , LabelToChange: string, columnIdSelected: string) => {
-       setModalText(LabelToChange);
+    const handleModalItem = (idToChange: string , LabelSelect: string, columnIdSelected: string) => {
+       
        const columnItems = columns.filter(({ value}) =>  value === columnIdSelected)[0].label;
-
+       
+       setModalText(LabelSelect);
        setModalSelect(columnItems);
        setIsModalItemOpen(true);
     };
 
-    const handleModalColumn = (LabelToChange: string) => {
-        setModalText(LabelToChange);
+    const handleModalColumn = (LabelSelect: string) => {
+        setModalText(LabelSelect);
         setIsModalColumnOpen(true);
     };
 
