@@ -23,6 +23,9 @@ interface Item {
 const TodoListEdit = () => {
     const [columns, setColumns] = useState<Column[]>([]);
     const [items, setItems] = useState<Item[]>([]);
+    const [itemModal, setItemModal] = useState<Item[]>();
+    const [columnModal, setColumnModal] = useState<Column[]>();
+
     const [newItemName, setNewItemName] = useState<string>('');
     const [newColumnName, setColumnName] = useState<string>();
     const [newItemColumn, setNewItemColumn] = useState<string>();
