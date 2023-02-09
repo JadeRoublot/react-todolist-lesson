@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, List, Select } from 'antd';
+import { Button, Input, List, Select, Modal } from 'antd';
 import './TodoListEdit.css';
 import { CloseOutlined , EditOutlined} from '@ant-design/icons';
 
@@ -81,16 +81,22 @@ const TodoListEdit = () => {
         setItems(items.filter(({ id }) => id !== idToRemove));
     };
 
-    const handleOnModifItem = (idToRemove: string) => {
+    const handleOnModifItem = (idToChange: string) => {
        // setItems(items.filter(({ id }) => id !== idToRemove));
     };
 
-    const handleOnModifColumn = (LabelToRemove: string) => {
+    const handleOnModifColumn = (LabelToChange: string) => {
         //setItems(items.filter(({ id }) => id !== idToRemove));
     };
 
     const handleOnDeleteColumn = (LabelToRemove: string) => {
-       // setItems(items.filter(({ id }) => id !== idToRemove));
+
+        const valueId = columns.filter(({label}) => LabelToRemove)[0].value;
+
+        setItems(items.filter(({ columnId }) => columnId !== valueId));
+
+        setColumns(columns.filter(({label}) => label !== LabelToRemove));
+       
     };
 
     return (
