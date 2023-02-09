@@ -88,21 +88,19 @@ const TodoListEdit = () => {
     const handleOnDeleteColumn = (LabelToRemove: string) => {
 
         const valueId = columns.filter(({label}) => LabelToRemove)[0].value;
-
+        
         setItems(items.filter(({ columnId }) => columnId !== valueId));
-
         setColumns(columns.filter(({label}) => label !== LabelToRemove));
        
     };
 
 
-    const handleOnModifItem = (idToChange: string , LabelToChange: string) => {
-       // setItems(items.filter(({ id }) => id !== idToRemove));
+    const handleModalItem = (idToChange: string , LabelToChange: string) => {
        setModalText(LabelToChange);
        setIsModalItemOpen(true);
     };
 
-    const handleOnModifColumn = (LabelToChange: string) => {
+    const handleModalColumn = (LabelToChange: string) => {
         setModalText(LabelToChange);
         setIsModalColumnOpen(true);
     };
@@ -174,7 +172,7 @@ const TodoListEdit = () => {
                                         
                                         size="small"
                                         icon={<EditOutlined />}
-                                        onClick={() => handleOnModifColumn(label)}
+                                        onClick={() => handleModalColumn(label)}
                                     />
 
                                 <Button
@@ -197,7 +195,7 @@ const TodoListEdit = () => {
                                             
                                             size="small"
                                             icon={<EditOutlined />}
-                                            onClick={() => handleOnModifItem(id, label)}
+                                            onClick={() => handleModalItem(id, label)}
                                         />
 
                                         <Button
