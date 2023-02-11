@@ -132,7 +132,7 @@ const TodoListEdit = () => {
 
       const handleOkItem = () => {
 
-        const itemSel = items.filter(({ id }) => id === previousText);
+       
         var colSel : string;
 
         if (columns.filter(({label}) => label === modalSelect).length === 0) {
@@ -145,7 +145,8 @@ const TodoListEdit = () => {
           
         }
         
-        setItems(items.filter(({ columnId }) => columnId =  colSel));
+        const itemSel = items.filter(({ id }) => id === previousText)[0].columnId = colSel;
+        setItems(items.filter(({ id }) => id = itemSel));
 
         console.log('item sel' , itemSel);
         console.log('col sel' , colSel);
