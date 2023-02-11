@@ -89,9 +89,9 @@ const TodoListEdit = () => {
 
     const handleOnDeleteColumn = (LabelToRemove: string) => {
 
-        const valueId = columns.filter(({label}) => LabelToRemove)[0].value;
+       // const valueId = columns.filter(({label}) => LabelToRemove)[0].value;
 
-        setItems(items.filter(({ columnId }) => columnId !== valueId));
+        //setItems(items.filter(({ columnId }) => columnId !== valueId));
         setColumns(columns.filter(({label}) => label !== LabelToRemove));
        
     };
