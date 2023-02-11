@@ -121,10 +121,16 @@ const TodoListEdit = () => {
     };
 
 
-     const handleOk = () => {
-        setIsModalItemOpen(false);
+     const handleOkColumn = () => {
+    
         setIsModalColumnOpen(false);
       };
+
+      const handleOkItem = () => {
+        setIsModalItemOpen(false);
+      
+      };
+    
     
       const handleCancel = () => {
         setIsModalItemOpen(false);
@@ -230,7 +236,7 @@ const TodoListEdit = () => {
                 })}
             </div>
 
-            <Modal title="Column edition" open={isModalColumnOpen} onOk={handleOk} onCancel={handleCancel}>
+            <Modal title="Column edition" open={isModalColumnOpen} onOk={handleOkColumn} onCancel={handleCancel}>
                 <Input
                         placeholder= {modalText}
                         onChange={handleChangModalText}
@@ -238,7 +244,7 @@ const TodoListEdit = () => {
                     />
             </Modal>
 
-            <Modal title="Item edition" open={isModalItemOpen} onOk={handleOk} onCancel={handleCancel}>
+            <Modal title="Item edition" open={isModalItemOpen} onOk={handleOkItem} onCancel={handleCancel}>
                 <Input
                         placeholder={modalText}
                         onChange={handleChangModalText}
