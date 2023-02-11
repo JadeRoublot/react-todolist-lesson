@@ -145,12 +145,12 @@ const TodoListEdit = () => {
           
         }
         
-        const itemSel = items.filter(({ id }) => id === previousText)[0].columnId = colSel;
-        setItems(items.filter(({ id }) => id = itemSel));
+        const itemTextChange = items.filter(({ id }) => id === previousText)[0].label = modalText;
+        setItems(items.filter(({ id }) => id = itemTextChange));
 
-        console.log('item sel' , itemSel);
-        console.log('col sel' , colSel);
-        console.log('modal sel' , modalSelect);
+        const itemColChange = items.filter(({ id }) => id === previousText)[0].columnId = colSel;
+        setItems(items.filter(({ id }) => id = itemColChange));
+     
         setIsModalItemOpen(false);
       
       };
