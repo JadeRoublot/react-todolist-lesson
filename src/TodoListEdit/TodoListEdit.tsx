@@ -114,11 +114,10 @@ const TodoListEdit = () => {
 
     const  handleChangModalText = (e: React.ChangeEvent<HTMLInputElement>) => {
         setModalText(e.target.value);
-       // return items.filter(({ columnId }) => columnId === columnIdSelected);
     };
 
     const handleChangModalSelect = ( newValue: string) => {
-        //return items.filter(({ columnId }) => columnId === columnIdSelected);
+        setModalSelect(newValue);
     };
 
 
