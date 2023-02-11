@@ -133,20 +133,23 @@ const TodoListEdit = () => {
       const handleOkItem = () => {
 
         const itemSel = items.filter(({ id }) => id === previousText);
-        var colSel ;
+        var colSel : string;
 
         if (columns.filter(({label}) => label === modalSelect).length === 0) {
 
-            colSel = columns.filter(({value}) =>  value === modalSelect);
-
+           colSel = columns.filter(({value}) =>  value === modalSelect)[0].value;
+          
+             
         }else {
-             colSel = columns.filter(({label}) => label === modalSelect);
+            colSel = columns.filter(({label}) => label === modalSelect)[0].value;
+          
         }
-      
+        
+        setItems(items.filter(({ columnId }) => columnId =  colSel));
 
-        console.log(itemSel);
-        console.log(colSel);
-        console.log(modalSelect);
+        console.log('item sel' , itemSel);
+        console.log('col sel' , colSel);
+        console.log('modal sel' , modalSelect);
         setIsModalItemOpen(false);
       
       };
