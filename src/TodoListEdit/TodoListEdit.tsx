@@ -112,11 +112,12 @@ const TodoListEdit = () => {
     };
 
 
-    const  handleChangModalColumn = () => {
+    const  handleChangModalText = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setModalText(e.target.value);
        // return items.filter(({ columnId }) => columnId === columnIdSelected);
     };
 
-    const handleChangModalItem = () => {
+    const handleChangModalSelect = ( newValue: string) => {
         //return items.filter(({ columnId }) => columnId === columnIdSelected);
     };
 
@@ -233,7 +234,7 @@ const TodoListEdit = () => {
             <Modal title="Column edition" open={isModalColumnOpen} onOk={handleOk} onCancel={handleCancel}>
                 <Input
                         placeholder= {modalText}
-                        onChange={handleChangModalColumn}
+                        onChange={handleChangModalText}
                         value={modalText}
                     />
             </Modal>
@@ -241,13 +242,13 @@ const TodoListEdit = () => {
             <Modal title="Item edition" open={isModalItemOpen} onOk={handleOk} onCancel={handleCancel}>
                 <Input
                         placeholder={modalText}
-                        onChange={handleChangModalItem}
+                        onChange={handleChangModalText}
                         value={modalText}
                     />
 
                 <Select
                     placeholder="Select column"
-                    onChange={handleChangModalItem}
+                    onChange={handleChangModalSelect}
                     value={modalSelect}
                     options={columns}
                 />
