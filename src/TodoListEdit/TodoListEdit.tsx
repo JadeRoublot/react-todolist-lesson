@@ -125,7 +125,7 @@ const TodoListEdit = () => {
 
      const handleOkColumn = () => {
         const colSel = columns.filter(({label}) => label === previousText)[0].label = modalText;
-        setColumns(columns.filter(({label}) => label === modalText));
+        setColumns(columns.filter(({label}) => label = colSel));
        
         setIsModalColumnOpen(false);
       };
