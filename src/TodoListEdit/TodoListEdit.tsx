@@ -101,7 +101,7 @@ const TodoListEdit = () => {
     const handleModalItem = (idToChange: string , LabelSelect: string, columnIdSelected: string) => {
        
        const columnItems = columns.filter(({ value}) =>  value === columnIdSelected)[0].label;
-       setPreviousText(LabelSelect);
+       setPreviousText(idToChange);
        setModalText(LabelSelect);
        setModalSelect(columnItems);
        setIsModalItemOpen(true);
@@ -131,8 +131,21 @@ const TodoListEdit = () => {
       };
 
       const handleOkItem = () => {
-     
-        console.log(modalText);
+
+        const itemSel = items.filter(({ id }) => id === previousText);
+        var colSel ;
+
+        if (columns.filter(({label}) => label === modalSelect).length === 0) {
+
+            colSel = columns.filter(({value}) =>  value === modalSelect);
+
+        }else {
+             colSel = columns.filter(({label}) => label === modalSelect);
+        }
+      
+
+        console.log(itemSel);
+        console.log(colSel);
         console.log(modalSelect);
         setIsModalItemOpen(false);
       
