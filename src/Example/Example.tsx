@@ -1,54 +1,62 @@
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Button, Input, Select } from 'antd';
-import { setLabel , setColumnId, setNewItemName , newItemColumn} from './ExampleSlice';
+import { setNewItemName , setNewItemColumn, onClickNewItem} from './ExampleSlice';
+import { Column } from '../TodoListRedux/TodoListRedux';
 import store from './store';
 
 export default () => {
     return (
         <Provider store={store}>
             <Level0 />
-            <Display />
         </Provider>
     );
 };
 
-const Display = () => {
-    const label = useSelector((state: any) => state.example.label);
-
-    return <div>{label}</div>;
-};
-
 const Level0 = () => {
-    return <Level1 />;
-};
-
-const Level1 = () => {
-    return <Level2 />;
-};
-
-const Level2 = () => {
-    return <Level3 />;
-};
-
-const Level3 = () => {
     const dispatch = useDispatch();
-    const label = useSelector((state: any) => state.example.label);
+    const newItemName = useSelector((state: any) => state.example.newItemName);
+    const newItemColumn = useSelector((state: any) => state.example.newItemColumn);
+    const columns = useSelector((state: any) => state.example.columns);
+
 
     const handleOnItemNameChange = (e: any) => {
-        dispatch(setLabel(e.target.value));
+        dispatch(setNewItemName(e.target.value));
     };
 
     const handleOnCategoryChange = (newValue: string) => {
-        dispatch(setColumnId(newValue));
+        dispatch(setNewItemColumn(newValue));
+    };
+
+    const handleOnClickNewItem = () => {
+        dispatch(onClickNewItem(newItemName, newItemColumn as string));
+
+        dispatch( setNewItemName(''));
+        dispatch( setNewItemColumn(''));
     };
 
     return   <div className="todo-list-edit-add-item">
             <Input
                 placeholder="Item name"
                 onChange={handleOnItemNameChange}
-                value={label}
+                value={newItemName}
             />
+
+             <Select
+                placeholder="Select column"
+                onChange={handleOnCategoryChange}
+                value={newItemColumn}
+                options={columns}
+            />
+
+            <Button
+                disabled={!newItemName?.length || !newItemColumn}
+                onClick={handleOnClickNewItem}
+            >
+                Add Item
+            </Button>
 
         </div>
    ;
 };
+
+
