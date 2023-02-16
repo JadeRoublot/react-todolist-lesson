@@ -1,7 +1,7 @@
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Button, Input, Select } from 'antd';
 import { setNewItemName , setNewItemColumn, onClickNewItem} from './ExampleSlice';
-import { Column } from '../TodoListRedux/TodoListRedux';
+import { Column, Item } from '../TodoListRedux/TodoListRedux';
 import store from './store';
 
 export default () => {
@@ -28,7 +28,7 @@ const Level0 = () => {
     };
 
     const handleOnClickNewItem = () => {
-        dispatch(onClickNewItem(newItemName, newItemColumn as string));
+        dispatch(onClickNewItem({newItemName, newItemColumn}));
 
         dispatch( setNewItemName(''));
         dispatch( setNewItemColumn(''));

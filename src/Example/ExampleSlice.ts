@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Column } from '../TodoListRedux/TodoListRedux';
+import { Column, Item } from '../TodoListRedux/TodoListRedux';
 
 
 
@@ -26,9 +26,18 @@ export const AddItem = createSlice({
        setNewItemColumn : ( state:{newItemColumn:string}, action : {payload : string}) => {
         state. newItemColumn = action.payload;
        },
+       
 
-       onClickNewItem : ( ) => {
-        
+       onClickNewItem : ( state:{newItemName:string , newItemColumn:string}, action : {payload : {newItemName:string , newItemColumn:string}}) => {
+        const randomId  = (Math.random() + 1).toString(36).substring(7);
+
+        const newItem = {
+            id: randomId,
+            label: state.newItemName,
+            columnId: state.newItemColumn,
+        };
+
+        setItems([...items, newItem]);
        }
 
     },
