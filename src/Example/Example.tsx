@@ -1,5 +1,6 @@
 import { Provider, useDispatch, useSelector } from 'react-redux';
-import { setLabel } from './ExampleSlice';
+import { Button, Input, Select } from 'antd';
+import { setLabel , setColumnId, setNewItemName , newItemColumn} from './ExampleSlice';
 import store from './store';
 
 export default () => {
@@ -33,9 +34,21 @@ const Level3 = () => {
     const dispatch = useDispatch();
     const label = useSelector((state: any) => state.example.label);
 
-    const handleOnChange = (e: any) => {
+    const handleOnItemNameChange = (e: any) => {
         dispatch(setLabel(e.target.value));
     };
 
-    return <input value={label} onChange={handleOnChange} />;
+    const handleOnCategoryChange = (newValue: string) => {
+        dispatch(setColumnId(newValue));
+    };
+
+    return   <div className="todo-list-edit-add-item">
+            <Input
+                placeholder="Item name"
+                onChange={handleOnItemNameChange}
+                value={label}
+            />
+
+        </div>
+   ;
 };
