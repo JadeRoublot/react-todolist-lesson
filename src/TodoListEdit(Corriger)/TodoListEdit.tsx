@@ -4,7 +4,7 @@ import AddItem from './AddItem';
 import ColumnComp from './Column';
 import ColumnModal from './ColumnModal';
 import ItemModal from './ItemModal';
-import './TodoListRedux.css';
+import './TodoListEdit.css';
 
 export interface Column {
     value: string;
@@ -17,7 +17,7 @@ export interface Item {
     label: string;
 }
 
-const TodoListRedux = () => {
+const TodoListEdit = () => {
     const [columns, setColumns] = useState<Column[]>([]);
     const [items, setItems] = useState<Item[]>([]);
     const [itemModal, setItemModal] = useState<Item>();
@@ -139,4 +139,4 @@ const TodoListRedux = () => {
     );
 };
 
-export default TodoListRedux;
+export default TodoListEdit;
