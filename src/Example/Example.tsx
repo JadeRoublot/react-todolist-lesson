@@ -1,5 +1,5 @@
 import { Provider, useDispatch, useSelector } from 'react-redux';
-import { setName } from './ExampleSlice';
+import { setLabel } from './ExampleSlice';
 import store from './store';
 
 export default () => {
@@ -12,9 +12,9 @@ export default () => {
 };
 
 const Display = () => {
-    const name = useSelector((state: any) => state.example.name);
+    const label = useSelector((state: any) => state.example.label);
 
-    return <div>{name}</div>;
+    return <div>{label}</div>;
 };
 
 const Level0 = () => {
@@ -31,11 +31,11 @@ const Level2 = () => {
 
 const Level3 = () => {
     const dispatch = useDispatch();
-    const name = useSelector((state: any) => state.example.name);
+    const label = useSelector((state: any) => state.example.label);
 
     const handleOnChange = (e: any) => {
-        dispatch(setName(e.target.value));
+        dispatch(setLabel(e.target.value));
     };
 
-    return <input value={name} onChange={handleOnChange} />;
+    return <input value={label} onChange={handleOnChange} />;
 };

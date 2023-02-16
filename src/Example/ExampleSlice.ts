@@ -1,21 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface State {
-    name: string;
+interface Item {
+    id: string;
+    columnId: string;
+    label: string;
 }
 
 export const exampleSlice = createSlice({
     name: 'example',
     initialState: {
-        name: 'MOrgan',
+        label: 'MOrgan',
     },
     reducers: {
-        setName: (state: State, action: { payload: string }) => {
-            state.name = action.payload;
-        },
+       setLabel : ( state:{label:string}, action : {payload : string}) => {
+        state.label = action.payload;
+       }
     },
 });
 
-export const { setName } = exampleSlice.actions;
+export const { setLabel } = exampleSlice.actions;
 
 export default exampleSlice.reducer;
