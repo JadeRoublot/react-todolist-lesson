@@ -20,7 +20,10 @@ export interface Item {
 export const Add = createSlice({
     name: 'example',
     initialState: {
-        columns : [],
+        columns : <Column[]>[],
+        items : <Item[]>[],
+        itemModal : <Item><unknown>(undefined),
+        columnModal : <Column><unknown>(undefined),
        
         
     },
