@@ -1,6 +1,6 @@
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Button, Input, Select } from 'antd';
-import { setNewItemName , setNewItemColumn, onClickNewItem} from './ExampleSlice';
+import {} from './ExampleSlice';
 import { Column, Item } from '../TodoListRedux/TodoListRedux';
 import store from './store';
 
@@ -14,47 +14,16 @@ export default () => {
 
 const Level0 = () => {
     const dispatch = useDispatch();
-    const newItemName = useSelector((state: any) => state.example.newItemName);
-    const newItemColumn = useSelector((state: any) => state.example.newItemColumn);
+    const itemModal = useSelector((state: any) => state.example.itemModal);
+    const items = useSelector((state: any) => state.example.items);
+    const columnModal = useSelector((state: any) => state.example.columnModal);
     const columns = useSelector((state: any) => state.example.columns);
 
 
-    const handleOnItemNameChange = (e: any) => {
-        dispatch(setNewItemName(e.target.value));
-    };
-
-    const handleOnCategoryChange = (newValue: string) => {
-        dispatch(setNewItemColumn(newValue));
-    };
-
-    const handleOnClickNewItem = () => {
-        dispatch(onClickNewItem({newItemName, newItemColumn}));
-
-        dispatch( setNewItemName(''));
-        dispatch( setNewItemColumn(''));
-    };
+  
 
     return   <div className="todo-list-edit-add-item">
-            <Input
-                placeholder="Item name"
-                onChange={handleOnItemNameChange}
-                value={newItemName}
-            />
-
-             <Select
-                placeholder="Select column"
-                onChange={handleOnCategoryChange}
-                value={newItemColumn}
-                options={columns}
-            />
-
-            <Button
-                disabled={!newItemName?.length || !newItemColumn}
-                onClick={handleOnClickNewItem}
-            >
-                Add Item
-            </Button>
-
+            
         </div>
    ;
 };

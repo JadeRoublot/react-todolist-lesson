@@ -1,48 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Column, Item } from '../TodoListRedux/TodoListRedux';
+import React, { useState } from 'react';
+import AddColumn from '../TodoListRedux/AddColumn/AddColumn';
+import AddItem from '../TodoListRedux/AddItem/AddItem';
+import ColumnComp from '../TodoListRedux/Column';
+import ColumnModal from '../TodoListRedux/ColumnModal';
+import ItemModal from '../TodoListRedux/ItemModal';
 
-
-
-interface AddItemInterface {
-    onClickNewItem(newItemName: string, newItemColumn: string): void;
-    columns: Column[];
+export interface Column {
+    value: string;
+    label: string;
 }
 
-export const AddItem = createSlice({
+export interface Item {
+    id: string;
+    columnId: string;
+    label: string;
+}
+
+export const Add = createSlice({
     name: 'example',
     initialState: {
         columns : [],
-        newItemName : '',
-        newItemColumn : ''
+       
         
     },
 
     reducers: {
 
-       setNewItemName : ( state:{newItemName:string}, action : {payload : string}) => {
-        state.newItemName = action.payload;
-       },
+      
 
-       setNewItemColumn : ( state:{newItemColumn:string}, action : {payload : string}) => {
-        state. newItemColumn = action.payload;
-       },
        
-
-       onClickNewItem : ( state:{newItemName:string , newItemColumn:string}, action : {payload : {newItemName:string , newItemColumn:string}}) => {
-        const randomId  = (Math.random() + 1).toString(36).substring(7);
-
-        const newItem = {
-            id: randomId,
-            label: state.newItemName,
-            columnId: state.newItemColumn,
-        };
-
-        setItems([...items, newItem]);
        }
 
     },
-});
+);
 
-export const { setNewItemName , setNewItemColumn, onClickNewItem} = AddItem.actions;
+export const { } = Add.actions;
 
-export default AddItem.reducer;
+export default Add.reducer;
