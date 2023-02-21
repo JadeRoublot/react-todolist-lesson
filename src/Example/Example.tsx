@@ -19,10 +19,15 @@ export default () => {
 
 const Level0 = () => {
     const dispatch = useDispatch();
-    const itemModal = useSelector((state: any) => state.example.itemModal);
-    const items = useSelector((state: any) => state.example.items);
-    const columnModal = useSelector((state: any) => state.example.columnModal);
-    const columns = useSelector((state: any) => state.example.columns);
+   // const itemModal = useSelector((state: any) => state.example.itemModal);
+   // const items = useSelector((state: any) => state.example.items);
+   // const columnModal = useSelector((state: any) => state.example.columnModal);
+   // const columns = useSelector((state: any) => state.example.columns);
+
+    const itemModal = useSelector((state: Item) => state);
+    const items = useSelector((state: Item[]) => state);
+    const columnModal = useSelector((state: Column) => state);
+    const columns = useSelector((state: Column[]) => state);
 
     const randomId = () => (Math.random() + 1).toString(36).substring(7);
 
@@ -49,15 +54,16 @@ const Level0 = () => {
     };
 
     const getColumnItems = (columnIdSelected: string) => {
-       
+        return items.filter(({ columnId }) => columnId === columnIdSelected);
     };
 
     const handleOnDeleteItem = (idToRemove: string) => {
-       
+        dispatch(setItems(items.filter(({ id }) => id !== idToRemove)));
     };
 
     const handleOnDeleteColumn = (idToRemove: string) => {
-      
+       dispatch( setColumns(columns.filter(({ value }) => value !== idToRemove)));
+       dispatch( setItems(items.filter(({ columnId }) => columnId !== idToRemove)));
     };
 
     const handleOnEditItem = (idItem: string) => {
@@ -77,52 +83,58 @@ const Level0 = () => {
     };
 
     const handleOnSaveItem = (newItem: Item) => {
-       
+        dispatch(  setItems(
+            items.map((item) => (item.id === newItem.id ? newItem : item))
+        ));
         handleOnCloseItem();
     };
 
     const handleOnSaveColumn = (newColumn: Column) => {
-      
+       dispatch( setColumns(
+            columns.map((column) =>
+                column.value === newColumn.value ? newColumn : column
+            )
+        ));
         handleOnCloseColumn();
     };
 
   
 
-    return   <div className="todo-list-edit">
-             <AddColumn onClickNewColumn={handleOnClickNewColumn} />
-            <AddItem onClickNewItem={handleOnClickNewItem} columns={columns} />
+    return    <div className="todo-list-edit">
+                <AddColumn onClickNewColumn={handleOnClickNewColumn} />
+                <AddItem onClickNewItem={handleOnClickNewItem} columns={columns} />
 
-            <div className="todo-list-edit-columns">
-                {columns.map(({ value, label }) => {
-                    const columnItems = getColumnItems(value);
+                <div className="todo-list-edit-columns">
+                    {columns.map(({ value, label }) => {
+                        const columnItems = getColumnItems(value);
 
-                    return (
-                        <ColumnComp
-                            value={value}
-                            label={label}
-                            columnItems={columnItems}
-                            onDeleteItem={handleOnDeleteItem}
-                            onEditItem={handleOnEditItem}
-                            onEditColumn={handleOnEditColumn}
-                            onDeleteColumn={handleOnDeleteColumn}
-                        />
-                    );
-                })}
+                        return (
+                            <ColumnComp
+                                value={value}
+                                label={label}
+                                columnItems={columnItems}
+                                onDeleteItem={handleOnDeleteItem}
+                                onEditItem={handleOnEditItem}
+                                onEditColumn={handleOnEditColumn}
+                                onDeleteColumn={handleOnDeleteColumn}
+                            />
+                        );
+                    })}
+                </div>
+
+                <ItemModal
+                    item={itemModal}
+                    onCloseItem={handleOnCloseItem}
+                    onSaveItem={handleOnSaveItem}
+                    columns={columns}
+                />
+
+                <ColumnModal
+                    column={columnModal}
+                    onCloseColumn={handleOnCloseColumn}
+                    onSaveColumn={handleOnSaveColumn}
+                />
             </div>
-
-            <ItemModal
-                item={itemModal}
-                onCloseItem={handleOnCloseItem}
-                onSaveItem={handleOnSaveItem}
-                columns={columns}
-            />
-
-            <ColumnModal
-                column={columnModal}
-                onCloseColumn={handleOnCloseColumn}
-                onSaveColumn={handleOnSaveColumn}
-            />
-        </div>
    ;
 };
 
