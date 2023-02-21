@@ -38,12 +38,18 @@ export const Add = createSlice({
             state.items = action.payload;
             },
 
-       
+        setItemModal : ( state:{ itemModal : Item | undefined }, action : {payload : Item | undefined}) => {
+                state.itemModal = action.payload;
+            },
+
+        setColumnModal : ( state:{ columnModal : Column | undefined }, action : {payload : Column | undefined}) => {
+                state.columnModal = action.payload;
+            },
        }
 
     },
 );
 
-export const {setColumns, setItems } = Add.actions;
+export const {setColumns, setItems , setItemModal, setColumnModal} = Add.actions;
 
 export default Add.reducer;

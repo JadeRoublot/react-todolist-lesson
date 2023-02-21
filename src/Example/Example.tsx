@@ -1,6 +1,6 @@
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Button, Input, Select } from 'antd';
-import {setColumns, setItems } from './ExampleSlice';
+import {setColumns, setItems , setItemModal, setColumnModal } from './ExampleSlice';
 import { Column, Item } from './ExampleSlice';
 import AddColumn from '../TodoListRedux/AddColumn/AddColumn';
 import AddItem from '../TodoListRedux/AddItem/AddItem';
@@ -24,9 +24,9 @@ const Level0 = () => {
    // const columnModal = useSelector((state: any) => state.example.columnModal);
    // const columns = useSelector((state: any) => state.example.columns);
 
-    const itemModal = useSelector((state: Item) => state);
+    const itemModal = useSelector((state: Item|undefined) => state);
     const items = useSelector((state: Item[]) => state);
-    const columnModal = useSelector((state: Column) => state);
+    const columnModal = useSelector((state: Column|undefined) => state);
     const columns = useSelector((state: Column[]) => state);
 
     const randomId = () => (Math.random() + 1).toString(36).substring(7);
@@ -67,19 +67,27 @@ const Level0 = () => {
     };
 
     const handleOnEditItem = (idItem: string) => {
-       
+        const item = items.find(({ id }) => id === idItem);
+
+        if (item) {
+            dispatch(setItemModal(item));
+        }
     };
 
     const handleOnEditColumn = (idColumn: string) => {
-        
+        const column = columns.find(({ value }) => value === idColumn);
+
+        if (column) {
+            dispatch(setColumnModal(column));
+        }
     };
 
     const handleOnCloseItem = () => {
-       
+        setItemModal(undefined);
     };
 
     const handleOnCloseColumn = () => {
-        
+        setColumnModal(undefined);
     };
 
     const handleOnSaveItem = (newItem: Item) => {
