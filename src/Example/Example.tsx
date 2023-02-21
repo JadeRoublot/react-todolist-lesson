@@ -19,15 +19,15 @@ export default () => {
 
 const Level0 = () => {
     const dispatch = useDispatch();
-   // const itemModal = useSelector((state: any) => state.example.itemModal);
-   // const items = useSelector((state: any) => state.example.items);
-   // const columnModal = useSelector((state: any) => state.example.columnModal);
-   // const columns = useSelector((state: any) => state.example.columns);
+    const itemModal = useSelector((state: any) => state.example.itemModal);
+    const items = useSelector((state: any) => state.example.items);
+    const columnModal = useSelector((state: any) => state.example.columnModal);
+   const columns = useSelector((state: any) => state.example.columns);
 
-    const itemModal = useSelector((state: Item|undefined) => state);
-    const items = useSelector((state: Item[]) => state);
-    const columnModal = useSelector((state: Column|undefined) => state);
-    const columns = useSelector((state: Column[]) => state);
+    //const itemModal = useSelector((state: Item|undefined) => state);
+   // const items = useSelector((state: Item[]) => state);
+   // const columnModal = useSelector((state: Column|undefined) => state);
+  //  const columns = useSelector((state: Column[]) => state);
 
     const randomId = () => (Math.random() + 1).toString(36).substring(7);
 
