@@ -32,7 +32,7 @@ const Level0 = () => {
             label: newColumnName,
         };
 
-        setColumns([...columns, newColumn]);
+        dispatch( setColumns([...columns, newColumn]));
     };
 
     const handleOnClickNewItem = (
@@ -45,7 +45,7 @@ const Level0 = () => {
             columnId: newItemColumn,
         };
 
-        setItems([...items, newItem]);
+        dispatch( setItems([...items, newItem]));
     };
 
     const getColumnItems = (columnIdSelected: string) => {
