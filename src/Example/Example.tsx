@@ -1,6 +1,6 @@
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { Button, Input, Select } from 'antd';
-import {setColumns} from './ExampleSlice';
+import {setColumns, setItems } from './ExampleSlice';
 import { Column, Item } from './ExampleSlice';
 import AddColumn from '../TodoListRedux/AddColumn/AddColumn';
 import AddItem from '../TodoListRedux/AddItem/AddItem';
@@ -27,7 +27,12 @@ const Level0 = () => {
     const randomId = () => (Math.random() + 1).toString(36).substring(7);
 
     const handleOnClickNewColumn = (newColumnName: string) => {
-       
+        const newColumn = {
+            value: randomId(),
+            label: newColumnName,
+        };
+
+        setColumns([...columns, newColumn]);
     };
 
     const handleOnClickNewItem = (
