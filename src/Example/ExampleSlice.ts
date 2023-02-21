@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import React, { useState } from 'react';
-import AddColumn from '../TodoListRedux/AddColumn/AddColumn';
-import AddItem from '../TodoListRedux/AddItem/AddItem';
-import ColumnComp from '../TodoListRedux/Column';
-import ColumnModal from '../TodoListRedux/ColumnModal';
-import ItemModal from '../TodoListRedux/ItemModal';
 
 export interface Column {
     value: string;

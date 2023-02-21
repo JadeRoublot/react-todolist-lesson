@@ -1,5 +1,4 @@
 import { Provider, useDispatch, useSelector } from 'react-redux';
-import { Button, Input, Select } from 'antd';
 import {setColumns, setItems , setItemModal, setColumnModal } from './ExampleSlice';
 import { Column, Item } from './ExampleSlice';
 import AddColumn from '../TodoListRedux/AddColumn/AddColumn';
