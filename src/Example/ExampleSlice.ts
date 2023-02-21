@@ -30,7 +30,9 @@ export const Add = createSlice({
 
     reducers: {
 
-      
+        setColumns : ( state:{ columns : Column[]}, action : {payload : Column[]}) => {
+            state.columns = action.payload;
+           },
 
        
        }
@@ -38,6 +40,6 @@ export const Add = createSlice({
     },
 );
 
-export const { } = Add.actions;
+export const {setColumns } = Add.actions;
 
 export default Add.reducer;
