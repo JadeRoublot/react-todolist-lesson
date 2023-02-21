@@ -39,7 +39,13 @@ const Level0 = () => {
         newItemName: string,
         newItemColumn: string
     ) => {
-       
+        const newItem = {
+            id: randomId(),
+            label: newItemName,
+            columnId: newItemColumn,
+        };
+
+        setItems([...items, newItem]);
     };
 
     const getColumnItems = (columnIdSelected: string) => {
