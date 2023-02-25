@@ -82,11 +82,11 @@ const Level0 = () => {
     };
 
     const handleOnCloseItem = () => {
-        setItemModal(undefined);
+       dispatch( setItemModal(undefined));
     };
 
     const handleOnCloseColumn = () => {
-        setColumnModal(undefined);
+        dispatch(setColumnModal(undefined));
     };
 
     const handleOnSaveItem = (newItem: Item) => {
